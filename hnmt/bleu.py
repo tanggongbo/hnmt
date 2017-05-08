@@ -43,7 +43,7 @@ def count_ngram(candidate, references, n):
         for reference in references:
             ref_sentence = reference[si]
             ngram_d = {}
-            words = ref_sentence.strip().split()
+            words = list(ref_sentence.strip())
             ref_lengths.append(len(words))
             limits = len(words) - n + 1
             # loop through the sentance consider the ngram length
@@ -57,7 +57,7 @@ def count_ngram(candidate, references, n):
         # candidate
         cand_sentence = candidate[si]
         cand_dict = {}
-        words = cand_sentence.strip().split()
+        words = list(cand_sentence.strip())
         limits = len(words) - n + 1
         for i in range(0, limits):
             ngram = ' '.join(words[i:i + n]).lower()
